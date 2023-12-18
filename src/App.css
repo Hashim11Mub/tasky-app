@@ -1,16 +1,24 @@
 body{
-  background-color: #9266ff;
+  background-color: white;
 }
 .App{
-  background-color: #3f3160;
+  background-color: rgb(113, 73, 169);
   border-radius: 18px;
   min-height: 500px;
   width: 400px;
-  margin: 40px auto;
+  margin: 50px auto;
+}
+
+h1 {
+  padding: 20px;
+  color: rgb(160, 154, 166);
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 #to-do-form input{
-  background-color: rgb(27, 112, 137);
+  background-color: rgb(16, 40, 47);
   border: 0;
   width: 200px;
   height: 50px;
@@ -35,8 +43,9 @@ body{
   width: 80px;
   border-radius: 5px;
   border: 0;
-  background-color: rgb(202, 156, 24);
+  background-color: rgb(69, 24, 202);
   cursor: pointer;
   font-weight: bolder;
   color: white;
 }
+

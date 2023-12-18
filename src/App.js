@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import ListItems from './listItems.js';
-import {library} from "@fortawesome/fontawesome-free";
-import {faTrash} from "@fortawesome/free-solid-svg-icons";
-
-library.add(faTrash)
 
 class App extends Component {
   constructor(props) {
@@ -21,6 +17,7 @@ class App extends Component {
     this.handleInput = this.handleInput.bind(this);
     this.addItem = this.addItem.bind(this);
     this.deleteItem = this.deleteItem.bind(this)
+    this.setUpdate = this.setUpdate.bind(this)
   }
 
   handleInput(e) {
@@ -55,25 +52,40 @@ class App extends Component {
         items: filterItems
       })
   }
+
+  setUpdate(text, key) {
+    const items = this.state.items;
+    items.map(item => {
+      if (item.key == key) {
+        item.text = text;
+      }
+    })
+    this.setState({
+      items: items
+    })
+  }
   render() {
     return (
       <div className='App'>
-      <header>
-        <form id= "to-do-form" onSubmit={this.addItem}>
-          <input type="text" placeholder='Enter Message !!'
-          value={this.state.currentItem.text}
-          onChange={this.handleInput}
-          />
-          <button type='Submit'>
-              Add
-          </button>
-        </form>
-      </header>
-      <ListItems items = {this.state.items} 
-      deleteItem={this.deleteItem}
-      />
+        <header>
+          <h1>This is our tasks</h1> 
+          <form id="to-do-form" onSubmit={this.addItem}>
+            <input
+              type="text"
+              placeholder="Enter Message !!"
+              value={this.state.currentItem.text}
+              onChange={this.handleInput}
+            />
+            <button type="Submit">Add</button>
+          </form>
+        </header>
+        <ListItems
+          items={this.state.items}
+          deleteItem={this.deleteItem}
+          setUpdate={this.setUpdate}
+        />
       </div>
-    )
+    );
   }
 }
 
