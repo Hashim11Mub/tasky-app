@@ -1,25 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+import React, { Component } from 'react'
+
+export class App extends Component {
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+       items: [],
+       currentItem: {},
+       text: "",
+       Key: ''
+    }
+  }
+  render() {
+    return (
+      <div className='App'>
+      <header>
+        <form id= "to-do-form">
+          <input type="text" placeholder='Enter Message !!'/>
+          <button type='Submit'>
+              Add
+          </button>
+        </form>
       </header>
-    </div>
-  );
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App
+
+
